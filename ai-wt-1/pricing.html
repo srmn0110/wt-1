@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Delivery Calculator</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<style>
+    form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    margin: 0 auto;
+}
+
+form label {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+form input {
+    width: 60%;
+    height: 30px;
+    font-size: 16px;
+    margin-bottom: 16px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    padding: 8px;
+}
+
+form button {
+    width: 60%;
+    height: 40px;
+    font-size: 18px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+    header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+nav li {
+    float: left;
+}
+
+nav a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}   
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+
+
+</style>
+
+<body>
+    <header>
+        <h1>Delivery Calculator</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h2>Calculate Delivery Cost</h2>
+        <form id="delivery-form">
+            <label for="distance">Distance (in miles):</label><br>
+            <input type="number" id="distance" name="distance"><br>
+            <label for="weight">Weight (in pounds):</label><br>
+            <input type="number" id="weight" name="weight"><br>
+            <button type="button" onclick="calculateCost()">Calculate Cost</button>
+        </form>
+        <div id="result"></div>
+    </main>
+    <footer>
+        <p>Copyright 2021 Delivery Calculator</p>
+    </footer>
+    <script>
+        function calculateCost() {
+            const distance = document.getElementById("distance").value;
+            const weight = document.getElementById("weight").value;
+            const baseCost = distance * 0.50;
+            const weightCost = weight * 0.25;
+            const totalCost = baseCost + weightCost;
+            document.getElementById("result").innerHTML = `
+        <p>Base cost: $${baseCost.toFixed(2)}</p>
+        <p>Weight cost: $${weightCost.toFixed(2)}</p>
+        <p>Total cost: $${totalCost.toFixed(2)}</p>
+      `;
+        }
+    </script>
+</body>
+
+</html>
